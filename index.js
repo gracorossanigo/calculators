@@ -37,3 +37,65 @@ const zero = keyboard.querySelector('#0');
 const dot = keyboard.querySelector('#.');
 const back = keyboard.querySelector('#<=');
 const equals = keyboard.querySelector('#=');
+
+ac = keyboard.addEventListener('click', ()=>{
+    
+});
+parenthesis .addEventListener('click', ()=>{
+
+})
+percentage.addEventListener('click', ()=>{
+
+})
+division.addEventListener('click', ()=>{
+
+})
+
+seven .addEventListener('click', ()=>{
+
+})
+eight .addEventListener('click', ()=>{
+
+})
+nine .addEventListener('click', ()=>{
+
+})
+x .addEventListener('click', ()=>{
+
+})
+four .addEventListener('click', ()=>{
+
+})
+five .addEventListener('click', ()=>{
+
+})
+six .addEventListener('click', ()=>{
+
+})
+minus .addEventListener('click', ()=>{
+
+})
+one.addEventListener('click', ()=>{
+
+})
+two .addEventListener('click', ()=>{
+
+})
+three.addEventListener('click', ()=>{
+
+})
+plus .addEventListener('click', ()=>{
+
+})
+zero .addEventListener('click', ()=>{
+
+})
+dot .addEventListener('click', ()=>{
+
+})
+back .addEventListener('click', ()=>{
+
+})
+equals.addEventListener('click', ()=>{
+
+})
