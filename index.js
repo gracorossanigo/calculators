@@ -1,7 +1,7 @@
 const add = function (a, b){
     return +a + +b;
 }
-const substract = function (a, b){
+const subtract = function (a, b){
     return +a - +b;
 }
 const multiply = function (a, b){
@@ -13,7 +13,29 @@ const divide = function (a, b){
 const operate = function (operator, a, b){
     return operator(a, b);
 }
-const container = document.querySelector('#main-container');
+const printToScreen = function (value) {
+    document.getElementById('visor').querySelector('h1').textContent = `${value}`
+}
+let displayValue = '';
+const operators = ['+', '-', 'X', '/']
+const buttons = document.querySelectorAll('.button');
+buttons.forEach((button)=>{
+    button.addEventListener('click', () => {
+        let buttonValue = document.getElementById(button.id).querySelector('h1').textContent;
+        if (operators.includes(buttonValue)) buttonValue = ` ${buttonValue} `;
+        displayValue = displayValue + buttonValue;
+        printToScreen(displayValue);
+    })
+})
+//TODO: distinguish operators from numbers
+
+
+
+
+
+
+
+/* const container = document.querySelector('#main-container');
 const visor = container.querySelector('#visor');
 const keyboard = container.querySelector('#keyboard');
 const out = visor.querySelector('h1');
@@ -99,3 +121,4 @@ back .addEventListener('click', ()=>{
 equals.addEventListener('click', ()=>{
 
 })
+*/
