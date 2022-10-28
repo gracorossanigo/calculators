@@ -35,7 +35,7 @@ buttons.forEach((button)=>{
             case 'AC': clear();
             break;
         }
-        if (operators.includes(buttonValue) && operators.includes(displayValue.charAt(displayValue.length - 2))){
+        if (operators.includes(buttonValue) && operators.includes(displayValue.charAt(displayValue.length - 2)) || buttonValue === 'AC' || operators.includes(buttonValue) && displayValue.length < 1){
 
         } else if (operators.includes(buttonValue)) {
             buttonValue = ` ${buttonValue} `;
