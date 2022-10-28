@@ -24,18 +24,23 @@ const clear = function (){
     printToScreen(displayValue);
 }
 let displayValue = '';
-const operators = ['+', '-', 'X', '/', '=']
+const operators = ['+', '-', 'X', '/', '=', '<']
 const buttons = document.querySelectorAll('.button');
 buttons.forEach((button)=>{
     button.addEventListener('click', () => {
         let buttonValue = document.getElementById(button.id).querySelector('h1').textContent;
         switch (buttonValue) {
+            case '<': displayValue = displayValue.slice(0, -1);
+                        printToScreen(displayValue);
             case '=':  calculate(displayValue);
             break;
             case 'AC': clear();
             break;
         }
-        if (operators.includes(buttonValue) && operators.includes(displayValue.charAt(displayValue.length - 2)) || buttonValue === 'AC' || operators.includes(buttonValue) && displayValue.length < 1){
+        if (operators.includes(buttonValue) && operators.includes(displayValue.charAt(displayValue.length - 2)) ||
+                                                                                           buttonValue === 'AC' ||
+                                                                                            buttonValue === '<' ||
+                                                      operators.includes(buttonValue) && displayValue.length < 1){
 
         } else if (operators.includes(buttonValue)) {
             buttonValue = ` ${buttonValue} `;
