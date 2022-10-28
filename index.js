@@ -16,20 +16,40 @@ const operate = function (operator, a, b){
 const printToScreen = function (value) {
     document.getElementById('visor').querySelector('h1').textContent = `${value}`
 }
+const calculate = function (displayValue){
+
+}
+const clear = function (){
+    displayValue = ''
+    printToScreen(displayValue);
+}
 let displayValue = '';
-const operators = ['+', '-', 'X', '/']
+const operators = ['+', '-', 'X', '/', '=']
 const buttons = document.querySelectorAll('.button');
 buttons.forEach((button)=>{
     button.addEventListener('click', () => {
         let buttonValue = document.getElementById(button.id).querySelector('h1').textContent;
-        if (operators.includes(buttonValue)) buttonValue = ` ${buttonValue} `;
-        displayValue = displayValue + buttonValue;
-        printToScreen(displayValue);
+        switch (buttonValue) {
+            case '=':  calculate(displayValue);
+            break;
+            case 'AC': clear();
+            break;
+        }
+        if (operators.includes(buttonValue) && operators.includes(displayValue.charAt(displayValue.length - 2))){
+
+        } else if (operators.includes(buttonValue)) {
+            buttonValue = ` ${buttonValue} `;
+            displayValue = displayValue + buttonValue;
+            printToScreen(displayValue);
+        } else {
+            displayValue = displayValue + buttonValue;
+            printToScreen(displayValue);
+        }
+
     })
 })
-//TODO: distinguish operators from numbers
-
-
+//TODO: distinguish operators from numbers -
+//TODO:
 
 
 
