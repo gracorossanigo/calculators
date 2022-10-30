@@ -1,29 +1,46 @@
-const add = function (a, b){
-    return +a + +b;
+function add(a, b){
+    return a + b;
 }
 const subtract = function (a, b){
-    return +a - +b;
+    return a - b;
 }
 const multiply = function (a, b){
-    return +a * +b;
+    return a * b;
 }
 const divide = function (a, b){
-    return +a / +b;
+    return a / b;
 }
-const operate = function (operator, a, b){
-    return operator(a, b);
-}
+function operate(operator, a, b){
+    return operator(Number(a), Number(b));
+}   
 const printToScreen = function (value) {
     document.getElementById('visor').querySelector('h1').textContent = `${value}`
 }
-const calculate = function (displayValue){
-
+const parseDisplayValue = function(displayValue){
+    splitArray = displayValue.split(' ');
+    return splitArray;
 }
+const calculate = function (displayValue){
+    splitArray = parseDisplayValue(displayValue);
+    for (i = 0; i < splitArray.length; i++){
+        if (operators.includes(splitArray[i])){
+            switch (splitArray[i]){
+                case '+': printToScreen( operate(add, splitArray[i-1], splitArray[i+1]));
+// TODO: ADD THE REST OF THE OPERATORS
+// AND THE OTHER FUNCTIONALITIES OF THE EQUALS SIGN
+            }
+        }
+
+    }
+}
+
 const clear = function (){
     displayValue = ''
     printToScreen(displayValue);
 }
 let displayValue = '';
+let splitArray = [];
+let result = '';
 const operators = ['+', '-', 'X', '/', '=', '<']
 const buttons = document.querySelectorAll('.button');
 buttons.forEach((button)=>{
@@ -32,6 +49,7 @@ buttons.forEach((button)=>{
         switch (buttonValue) {
             case '<': displayValue = displayValue.slice(0, -1);
                         printToScreen(displayValue);
+            break;
             case '=':  calculate(displayValue);
             break;
             case 'AC': clear();
@@ -40,6 +58,7 @@ buttons.forEach((button)=>{
         if (operators.includes(buttonValue) && operators.includes(displayValue.charAt(displayValue.length - 2)) ||
                                                                                            buttonValue === 'AC' ||
                                                                                             buttonValue === '<' ||
+                                                                                            buttonValue === '=' ||
                                                       operators.includes(buttonValue) && displayValue.length < 1){
 
         } else if (operators.includes(buttonValue)) {
